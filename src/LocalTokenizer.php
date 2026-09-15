@@ -10,11 +10,11 @@ use InvalidArgumentException;
 final class LocalTokenizer implements Tokenizer
 {
     /**
-     * @param array<string, int> $tokenToId
-     * @param array<int, string> $idToToken
-     * @param array<string, array{token: string, id: int}> $specialTokens
-     * @param list<array{surface: string, id: int}> $specialSurfaces
-     * @param array<string, array<string, int>> $mergeRanks
+     * @param  array<string, int>  $tokenToId
+     * @param  array<int, string>  $idToToken
+     * @param  array<string, array{token: string, id: int}>  $specialTokens
+     * @param  list<array{surface: string, id: int}>  $specialSurfaces
+     * @param  array<string, array<string, int>>  $mergeRanks
      */
     private function __construct(
         private readonly string $selectedAlgorithm,
@@ -25,8 +25,7 @@ final class LocalTokenizer implements Tokenizer
         private readonly array $specialSurfaces,
         private readonly array $mergeRanks,
         private readonly int $unknownId,
-    ) {
-    }
+    ) {}
 
     public static function fromConfig(array $config): self
     {
@@ -154,6 +153,7 @@ final class LocalTokenizer implements Tokenizer
         foreach ($this->splitSpecialTokens($text) as $segment) {
             if ($segment['id'] !== null) {
                 $encoded[] = $segment['id'];
+
                 continue;
             }
 
@@ -228,6 +228,7 @@ final class LocalTokenizer implements Tokenizer
         foreach ($this->splitSpecialTokens($text) as $segment) {
             if ($segment['id'] !== null) {
                 $encoded[] = $segment['id'];
+
                 continue;
             }
 
@@ -283,7 +284,7 @@ final class LocalTokenizer implements Tokenizer
     }
 
     /**
-     * @param list<int> $ids
+     * @param  list<int>  $ids
      */
     private function decodeBpe(array $ids): string
     {
@@ -297,7 +298,7 @@ final class LocalTokenizer implements Tokenizer
     }
 
     /**
-     * @param list<int> $ids
+     * @param  list<int>  $ids
      */
     private function decodeWordPiece(array $ids): string
     {
@@ -315,12 +316,14 @@ final class LocalTokenizer implements Tokenizer
 
                 $decoded .= $surface;
                 $previousKind = 'special';
+
                 continue;
             }
 
             if (str_starts_with($surface, '##')) {
                 $decoded .= substr($surface, 2);
                 $previousKind = 'word';
+
                 continue;
             }
 
@@ -358,6 +361,7 @@ final class LocalTokenizer implements Tokenizer
             if ($match === null) {
                 $ordinary .= $text[$offset];
                 $offset++;
+
                 continue;
             }
 
@@ -429,9 +433,9 @@ final class LocalTokenizer implements Tokenizer
     }
 
     /**
-     * @param array<string, mixed> $config
-     * @param array<string, int> $tokenToId
-     * @param array<int, string> $idToToken
+     * @param  array<string, mixed>  $config
+     * @param  array<string, int>  $tokenToId
+     * @param  array<int, string>  $idToToken
      * @return array<string, array{token: string, id: int}>
      */
     private static function loadSpecialTokens(array $config, array $tokenToId, array $idToToken): array
@@ -467,7 +471,7 @@ final class LocalTokenizer implements Tokenizer
     }
 
     /**
-     * @param array<string, int> $tokenToId
+     * @param  array<string, int>  $tokenToId
      * @return array<string, array<string, int>>
      */
     private static function loadMerges(string $path, array $tokenToId): array

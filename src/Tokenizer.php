@@ -19,13 +19,13 @@ interface Tokenizer
     public function encode(string $text): array;
 
     /**
-     * @param list<string> $texts
+     * @param  list<string>  $texts
      * @return list<list<int>>
      */
     public function encodeBatch(array $texts): array;
 
     /**
-     * @param list<int> $ids
+     * @param  list<int>  $ids
      */
     public function decode(array $ids): string;
 }

@@ -46,7 +46,7 @@ it('loads both algorithms through the public factory', function () {
 });
 
 it('keeps the existing package identity API', function () {
-    expect((new Tokens())->name())->toBe('tokens');
+    expect((new Tokens)->name())->toBe('tokens');
 });
 
 it('applies ordered Unicode BPE merges and preserves whitespace', function () {
