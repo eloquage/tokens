@@ -10,6 +10,11 @@ namespace Eloquage\Tokens;
  */
 final class Tokens
 {
+    public static function load(array $config): Tokenizer
+    {
+        return LocalTokenizer::fromConfig($config);
+    }
+
     public function name(): string
     {
         return 'tokens';

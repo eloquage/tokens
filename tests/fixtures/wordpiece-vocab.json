@@ -1,0 +1,15 @@
+{
+    "[UNK]": 0,
+    "[PAD]": 1,
+    "[CLS]": 2,
+    "[SEP]": 3,
+    "play": 4,
+    "##ing": 5,
+    "player": 6,
+    "##s": 7,
+    "token": 8,
+    "##izer": 9,
+    "tokenizer": 10,
+    "hello": 11,
+    "world": 12
+}

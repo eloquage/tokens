@@ -1,0 +1,3 @@
+# unicode code-point BPE fixture
+a	b
+ab	c
