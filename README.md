@@ -1,5 +1,8 @@
 # Fast tokenizers for PHP: Unicode BPE and WordPiece-style encode/decode, local vocabulary loading, and batch tokenization.
 
+<p align="center"><img src="art/banner.png" alt="tokens package banner" width="100%"></p>
+
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/eloquage/tokens.svg?style=flat-square)](https://packagist.org/packages/eloquage/tokens)
 [![Tests](https://github.com/eloquage/tokens/actions/workflows/run-tests.yml/badge.svg)](https://github.com/eloquage/tokens/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/eloquage/tokens.svg?style=flat-square)](https://packagist.org/packages/eloquage/tokens)
